@@ -1,3 +1,4 @@
+import { RemotePattern } from "./node_modules/next/dist/shared/lib/image-config.d";
 import type { Config } from "tailwindcss";
 
 const config: Config = {
