@@ -1,20 +1,44 @@
 "use client";
 
-import Image from "next/image";
+import { useState } from "react";
+
+import { Display } from "@/components/Display";
+
+enum Page {
+  Setting,
+  Display,
+}
 
 export default function Home() {
+  const [activePage, setActivePage] = useState(Page.Display);
   return (
     <main className="text-center">
-      <Image
-        src="/vercel.svg"
-        alt="logo"
-        width={120}
-        height={120}
-        className="mx-auto rounded-full w-[120px] h-[120px]"
-      />
-      <h1 className="text-xl font-bold">HikakinTV</h1>
-      <p className="my-6 text-5xl font-bold">1</p>
-      <p className="text-2xl font-bold">Subscribers</p>
+      <h1 className="text-2xl font-bold">YouTube Subscriber Counter</h1>
+      <button
+        onClick={() => setActivePage(Page.Setting)}
+        className="bg-blue-500 text-white px-4 py-2 rounded-md"
+      >
+        Settings
+      </button>
+      {activePage === Page.Display && (
+        <Display
+          imageUrl="/vercel.svg"
+          channelName="Vercel"
+          startSubsCount={1000}
+          endSubsCount={2000}
+        />
+      )}
+      {activePage === Page.Setting && (
+        <div>
+          <h1 className="text-2xl font-bold">Settings</h1>
+          <button
+            onClick={() => setActivePage(Page.Display)}
+            className="bg-blue-500 text-white px-4 py-2 rounded-md"
+          >
+            Back
+          </button>
+        </div>
+      )}
     </main>
   );
 }
