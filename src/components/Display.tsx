@@ -1,14 +1,10 @@
 import Image from "next/image";
 
 type Props = {
-  imageUrl: string;
-  channelName: string;
-  startSubsCount: number;
-  endSubsCount: number;
 };
 
 export const Display = (props: Props) => {
-  const { imageUrl, channelName, startSubsCount, endSubsCount } = props;
+  const { } = props;
   return (
     <div>
       <Image
@@ -18,8 +14,8 @@ export const Display = (props: Props) => {
         height={120}
         className="mx-auto rounded-full w-[120px] h-[120px]"
       />
-      <h1 className="mt-2 text-2xl font-bold">{channelName}</h1>
-      <p className="my-9 text-5xl font-bold">{startSubsCount}</p>
+      <h1 className="mt-2 text-2xl font-bold">Channel Name</h1>
+      <p className="my-9 text-5xl font-bold">12345</p>
       <p className="text-3xl font-bold">Subscribers</p>
     </div>
   );
