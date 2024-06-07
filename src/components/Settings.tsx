@@ -1,14 +1,12 @@
 import { useDispatch, useSelector } from "react-redux";
-import { Button, Container, TextField } from "@mui/material";
+import { Button, Container, TextField, Slider } from "@mui/material";
 
 import { Page, Settings as SettingsType } from "@/types";
 import { setSettings } from "@/action_creaters/settingsActions";
 import { setPage } from "@/action_creaters";
 import Image from "next/image";
 
-type Props = {};
-
-export const Settings = (props: Props) => {
+export const Settings = () => {
   const settings: SettingsType = useSelector((state: any) => state.settings);
   const dispatch = useDispatch();
 
@@ -17,13 +15,24 @@ export const Settings = (props: Props) => {
     switch (name) {
       case "imageFile":
         if (e.target.files && e.target.files[0]) {
-          const newSettings = { ...settings, [name]: e.target.files[0] };
+          const newSettings: SettingsType = {
+            ...settings,
+            [name]: e.target.files[0],
+          };
           dispatch(setSettings(newSettings));
         }
-        console.log("imageFile", e.target.files ? e.target.files[0] : null);
         return;
+      case "startSubsCount":
+      case "endSubsCount":
+      case "delaySec":
+        const numValue = parseInt(value, 10);
+        if (!Number.isNaN(numValue)) {
+          const newSettings: SettingsType = { ...settings, [name]: numValue };
+          dispatch(setSettings(newSettings));
+        }
+        break;
       default:
-        const newSettings = { ...settings, [name]: value };
+        const newSettings: SettingsType = { ...settings, [name]: value };
         dispatch(setSettings(newSettings));
         break;
     }
@@ -69,6 +78,21 @@ export const Settings = (props: Props) => {
               onChange={handleSettingsChange}
             />
           </div>
+        </div>
+        <div className="my-4">
+          <p>Count up after {settings.delaySec} sec.</p>
+          <Slider
+            name="delaySec"
+            value={settings.delaySec}
+            valueLabelDisplay="auto"
+            min={0}
+            max={60}
+            onChange={(_, value) =>
+              handleSettingsChange({
+                target: { name: "delaySec", value },
+              } as any)
+            }
+          />
         </div>
         <div className="my-4">
           {settings.imageFile && (

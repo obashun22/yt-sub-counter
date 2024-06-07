@@ -7,7 +7,6 @@ import { Page } from "@/types/page";
 import { pageReducer, settingsReducer } from "@/reducers";
 import { Display } from "@/components/Display";
 import { Settings } from "@/components/Settings";
-import { PageActionType } from "@/actions";
 
 const rootReducer = combineReducers({
   page: pageReducer,
@@ -18,13 +17,6 @@ const store = createStore(rootReducer);
 const Home = () => {
   const activePage = useSelector((state: any) => state.page);
   const dispatch = useDispatch();
-
-  const switchPage = () => {
-    dispatch({
-      type: PageActionType.SET_PAGE,
-      page: activePage === Page.Display ? Page.Setting : Page.Display,
-    });
-  };
 
   return (
     <main className="text-center pt-6">

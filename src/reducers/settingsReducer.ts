@@ -1,12 +1,13 @@
-import { Page, Settings } from "@/types";
-import { PageActionType, SettingsAction, SettingsActionType } from "@/actions";
+import { Settings } from "@/types";
+import { SettingsAction, SettingsActionType } from "@/actions";
 
 
 const initSettings: Settings = {
-    channelName: "HikakinTV",
+    channelName: "NarikinTV",
     startSubsCount: 999999,
     endSubsCount: 1000000,
     imageFile: null,
+    delaySec: 5,
 };
 
 

@@ -3,4 +3,5 @@ export type Settings = {
   startSubsCount: number;
   endSubsCount: number;
   imageFile: File | null;
+  delaySec: number;
 };
