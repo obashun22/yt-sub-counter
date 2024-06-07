@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { gsap } from "gsap";
 
 import { setPage } from "@/action_creaters/pageActions";
-import { PLACEHOLD_IMAGE } from "@/constants/url";
 
 export const Display = () => {
   const settings: Settings = useSelector((state: any) => state.settings);
@@ -28,7 +27,7 @@ export const Display = () => {
         src={
           settings.imageFile
             ? URL.createObjectURL(settings.imageFile)
-            : PLACEHOLD_IMAGE
+            : "/narikin.png"
         }
         alt="User Icon"
         width={120}
