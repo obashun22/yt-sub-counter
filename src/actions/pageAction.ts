@@ -7,7 +7,6 @@ export enum PageActionType {
 interface SetPageAction {
     type: PageActionType.SET_PAGE;
     page: Page;
-    id: number;
 }
 
 export type PageAction = SetPageAction;

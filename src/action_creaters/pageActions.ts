@@ -1,5 +1,5 @@
 import { Page } from "@/types";
-import { PageActionType } from "@/types/actions";
+import { PageActionType } from "@/actions";
 
 export const setPage = (page: Page) => (
     {

@@ -1,7 +1,5 @@
 "use client";
 
-import { useState } from "react";
-import { Button } from "@mui/material";
 import { combineReducers, createStore } from "redux";
 import { Provider, useSelector, useDispatch } from "react-redux";
 
@@ -9,7 +7,7 @@ import { Page } from "@/types/page";
 import { pageReducer, settingsReducer } from "@/reducers";
 import { Display } from "@/components/Display";
 import { Settings } from "@/components/Settings";
-import { PageActionType } from "@/types/actions";
+import { PageActionType } from "@/actions";
 
 const rootReducer = combineReducers({
   page: pageReducer,
@@ -29,14 +27,7 @@ const Home = () => {
   };
 
   return (
-    <main className="text-center">
-      <Button
-        color="primary"
-        className="bg-blue-500 text-white px-4 py-2 rounded-md"
-        onClick={switchPage}
-      >
-        Switch
-      </Button>
+    <main className="text-center pt-6">
       {activePage === Page.Display && <Display />}
       {activePage === Page.Setting && <Settings />}
     </main>

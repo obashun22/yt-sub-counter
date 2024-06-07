@@ -1,12 +1,12 @@
 import { Page, Settings } from "@/types";
-import { PageActionType, SettingsAction, SettingsActionType } from "@/types/actions";
+import { PageActionType, SettingsAction, SettingsActionType } from "@/actions";
 
 
 const initSettings: Settings = {
     channelName: "HikakinTV",
     startSubsCount: 999999,
     endSubsCount: 1000000,
-    imageUrl: "/vercel.svg",
+    imageFile: null,
 };
 
 

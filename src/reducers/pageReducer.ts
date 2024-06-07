@@ -1,5 +1,5 @@
 import { Page } from "@/types";
-import { PageAction, PageActionType } from "@/types/actions";
+import { PageAction, PageActionType } from "@/actions";
 
 export const pageReducer = (state: Page = Page.Setting, action: PageAction) => {
     switch (action.type) {
