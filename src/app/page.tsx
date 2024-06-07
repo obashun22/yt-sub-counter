@@ -16,7 +16,6 @@ const store = createStore(rootReducer);
 
 const Home = () => {
   const activePage = useSelector((state: any) => state.page);
-  const dispatch = useDispatch();
 
   return (
     <main className="text-center pt-6">

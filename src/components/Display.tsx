@@ -23,7 +23,7 @@ export const Display = () => {
   }, delayMilliSec);
 
   return (
-    <div onClick={moveToSettings}>
+    <div onClick={moveToSettings} className="mt-40">
       <Image
         src={
           settings.imageFile
