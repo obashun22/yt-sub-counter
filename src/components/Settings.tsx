@@ -105,7 +105,7 @@ export const Settings = () => {
             />
           )}
           <Button component="label" variant="outlined">
-            画像アップロード
+            Upload Profile Image
             <input
               name="imageFile"
               type="file"
